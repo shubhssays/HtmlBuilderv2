@@ -32,7 +32,7 @@ jQuery(function () {
     })
 
     let isSeEditor = true;
-    
+
     if (isSeEditor) {
 
         let seElemsIndex = {
@@ -132,8 +132,28 @@ jQuery(function () {
             } else {
                 if (elemTag == 'img') {
                     elemStr = `<div id="${elemIdPrefix}-${seElemsIndex[elemIdPrefix]}" class="se-elem elem-${elemIdPrefix} sortable"/>
-                    <img src="../public/img/sample-img.png"/>
-                </div>`;
+                    <img src="/img/image.png" /></div> 
+                    </div>`;
+                    let input = document.createElement('input');
+                    input.setAttribute('type', 'file');
+                    input.setAttribute('accept', 'image/png, image/gif, image/jpeg');
+                    input.setAttribute("id", "_inp");
+                    input.style.display = 'none'
+                    document.body.appendChild(input)
+                    $('#_inp').trigger('click');
+                    $('#_inp').change(function () {
+                        (async function () {
+                            const file = document.querySelector('#_inp').files[0];
+                            console.log("_inp src ==> ", file)
+                            let blob = await getBase64(file)
+                            $('#_inp').remove();
+                            console.log("myBlob :::>>> ", blob)
+                            $('img[src="/img/image.png"]').attr('src', blob);
+                        })()
+                    })
+                    
+                    
+
                 } else if (elemTag == 'code') {
                     elemStr = `<div id="${elemIdPrefix}-${seElemsIndex[elemIdPrefix]}" class="se-elem elem-${elemIdPrefix} sortable line-numbers"><script type="text/plain" class="language-markup"><p>Example</p></script></div>`;
                 } else if (elemTag == 'iframe') {
@@ -209,32 +229,32 @@ jQuery(function () {
         //Width
         inputWidth.on('input', function () {
             if (activeElemType == 'img') {
-                activeSeElem.find('img').css('width', `${inputWidth.val() ? inputWidth.val()+inputWidthType.val() : 'unset'}`);
+                activeSeElem.find('img').css('width', `${inputWidth.val() ? inputWidth.val() + inputWidthType.val() : 'unset'}`);
             } else {
-                activeSeElem.css('width', `${inputWidth.val() ? inputWidth.val()+inputWidthType.val() : 'unset'}`);
+                activeSeElem.css('width', `${inputWidth.val() ? inputWidth.val() + inputWidthType.val() : 'unset'}`);
             }
         })
         inputWidthType.on('change', function () {
             if (activeElemType == 'img') {
-                activeSeElem.find('img').css('width', `${inputWidth.val()+inputWidthType.val()}`);
+                activeSeElem.find('img').css('width', `${inputWidth.val() + inputWidthType.val()}`);
             } else {
-                activeSeElem.css('width', `${inputWidth.val()+inputWidthType.val()}`);
+                activeSeElem.css('width', `${inputWidth.val() + inputWidthType.val()}`);
             }
         })
 
         //Height
         inputHeight.on('input', function () {
             if (activeElemType == 'img') {
-                activeSeElem.find('img').css('height', `${inputHeight.val() ? inputHeight.val()+inputHeightType.val() : 'unset'}`);
+                activeSeElem.find('img').css('height', `${inputHeight.val() ? inputHeight.val() + inputHeightType.val() : 'unset'}`);
             } else {
-                activeSeElem.css('height', `${inputHeight.val() ? inputHeight.val()+inputHeightType.val() : 'unset'}`);
+                activeSeElem.css('height', `${inputHeight.val() ? inputHeight.val() + inputHeightType.val() : 'unset'}`);
             }
         })
         inputHeightType.on('change', function () {
             if (activeElemType == 'img') {
-                activeSeElem.find('img').css('height', `${inputHeight.val()+inputHeightType.val()}`);
+                activeSeElem.find('img').css('height', `${inputHeight.val() + inputHeightType.val()}`);
             } else {
-                activeSeElem.css('height', `${inputHeight.val()+inputHeightType.val()}`);
+                activeSeElem.css('height', `${inputHeight.val() + inputHeightType.val()}`);
             }
         })
 
@@ -243,11 +263,11 @@ jQuery(function () {
         inputFontSize.val(fontSizeRange.val());
         fontSizeRange.on('input', function () {
             inputFontSize.val(fontSizeRange.val());
-            activeSeElem.css('font-size', `${fontSizeRange.val() ? fontSizeRange.val()+'px' : 'unset'}`);
+            activeSeElem.css('font-size', `${fontSizeRange.val() ? fontSizeRange.val() + 'px' : 'unset'}`);
         })
         inputFontSize.on('input', function () {
             fontSizeRange.val(inputFontSize.val());
-            activeSeElem.css('font-size', `${inputFontSize.val() ? inputFontSize.val()+'px' : 'unset'}`);
+            activeSeElem.css('font-size', `${inputFontSize.val() ? inputFontSize.val() + 'px' : 'unset'}`);
         })
 
         //Text Align
@@ -280,7 +300,7 @@ jQuery(function () {
                 elemMarginItem.val($(this).val());
             }
 
-            activeSeElem.css('margin', `${inputMarginTop.val() ? inputMarginTop.val()+'px' : 'unset'} ${inputMarginRight.val() ? inputMarginRight.val()+'px' : 'unset'} ${inputMarginBottom.val() ? inputMarginBottom.val()+'px' : 'unset'} ${inputMarginLeft.val() ? inputMarginLeft.val()+'px' : 'unset'}`);
+            activeSeElem.css('margin', `${inputMarginTop.val() ? inputMarginTop.val() + 'px' : 'unset'} ${inputMarginRight.val() ? inputMarginRight.val() + 'px' : 'unset'} ${inputMarginBottom.val() ? inputMarginBottom.val() + 'px' : 'unset'} ${inputMarginLeft.val() ? inputMarginLeft.val() + 'px' : 'unset'}`);
         })
 
         //Padding
@@ -290,13 +310,13 @@ jQuery(function () {
                 elemPaddingItem.val($(this).val());
             }
 
-            activeSeElem.css('padding', `${inputPaddingTop.val() ? inputPaddingTop.val()+'px' : 'unset'} ${inputPaddingRight.val() ? inputPaddingRight.val()+'px' : 'unset'} ${inputPaddingBottom.val() ? inputPaddingBottom.val()+'px' : 'unset'} ${inputPaddingLeft.val() ? inputPaddingLeft.val()+'px' : 'unset'}`);
+            activeSeElem.css('padding', `${inputPaddingTop.val() ? inputPaddingTop.val() + 'px' : 'unset'} ${inputPaddingRight.val() ? inputPaddingRight.val() + 'px' : 'unset'} ${inputPaddingBottom.val() ? inputPaddingBottom.val() + 'px' : 'unset'} ${inputPaddingLeft.val() ? inputPaddingLeft.val() + 'px' : 'unset'}`);
         })
 
         //Border
 
         inputBorderSize.on('input', function () {
-            activeSeElem.css('border-width', `${inputBorderSize.val() ? inputBorderSize.val()+'px' : 'unset'}`)
+            activeSeElem.css('border-width', `${inputBorderSize.val() ? inputBorderSize.val() + 'px' : 'unset'}`)
         })
         inputBorderColor.on('blur', function () {
             activeSeElem.css('border-color', inputBorderColor.val())
@@ -316,7 +336,7 @@ jQuery(function () {
                 elemBorderRadiusItem.val($(this).val());
             }
 
-            activeSeElem.css('border-radius', `${inputRadiusTop.val() ? inputRadiusTop.val()+'px' : 'unset'} ${inputRadiusRight.val() ? inputRadiusRight.val()+'px' : 'unset'} ${inputRadiusBottom.val() ? inputRadiusBottom.val()+'px' : 'unset'} ${inputRadiusLeft.val() ? inputRadiusLeft.val()+'px' : 'unset'}`);
+            activeSeElem.css('border-radius', `${inputRadiusTop.val() ? inputRadiusTop.val() + 'px' : 'unset'} ${inputRadiusRight.val() ? inputRadiusRight.val() + 'px' : 'unset'} ${inputRadiusBottom.val() ? inputRadiusBottom.val() + 'px' : 'unset'} ${inputRadiusLeft.val() ? inputRadiusLeft.val() + 'px' : 'unset'}`);
         })
 
         //Box Shadow
@@ -325,7 +345,7 @@ jQuery(function () {
             if (isLinked) {
                 elemShadowItem.val($(this).val());
             }
-            activeSeElem.css('box-shadow', `${shadowX.val() ? shadowX.val()+'px' : '0'} ${shadowY.val() ? shadowY.val()+'px' : '0'} ${shadowBlur.val() ? shadowBlur.val()+'px' : '0'} ${shadowSpread.val() ? shadowSpread.val()+'px' : '0'} ${shadowColor.val()}`);
+            activeSeElem.css('box-shadow', `${shadowX.val() ? shadowX.val() + 'px' : '0'} ${shadowY.val() ? shadowY.val() + 'px' : '0'} ${shadowBlur.val() ? shadowBlur.val() + 'px' : '0'} ${shadowSpread.val() ? shadowSpread.val() + 'px' : '0'} ${shadowColor.val()}`);
         })
 
         shadowColor.on('blur', function () {
@@ -447,6 +467,21 @@ jQuery(function () {
             $('#se-blog-content > *').removeClass('active')
         })
 
+    }
+
+    function getBase64(file) {
+        return new Promise((resolve, reject) => {
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                let blob = reader.result
+                resolve(blob)
+            };
+            reader.onerror = function (error) {
+                console.log('Error: ', error);
+                reject(error)
+            };
+        })
     }
 
 
