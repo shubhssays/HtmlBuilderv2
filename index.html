@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Global CSS Library -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/farbtastic.css" />
+  <link rel="stylesheet" href="css/prism.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>HTML BUILDER</title>
+  <style>
+    .gen-text {
+      color: #000;
+      height: 185px !important;
+      width: 85%;
+      margin: 30px;
+    }
+
+    .html_cont {
+      background-color: #151718;
+      color: #55b5db;
+    }
+
+    .html_cont:focus {
+      background-color: #151718;
+      color: #55b5db;
+    }
+
+    .css_cont {
+      background-color: #151718;
+      color: #c47c18;
+    }
+
+    .css_cont:focus {
+      background-color: #151718;
+      color: #c47c18;
+    }
+
+    .modal-body {
+      text-align: center !important;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="container-fluid" id="main-header">
+    <nav id="main-nav">
+      <span id="main-logo">
+        <img src="img/logo.png" />
+      </span>
+
+      <button class="btn btn-danger ml-auto"
+        onclick="localStorage.removeItem('editorDat'); window.location.reload();">Reset Editor</button>
+
+      <span id="nav-toggler">
+        <i class="fas fa-bars"></i>
+      </span>
+    </nav>
+  </header>
+
+  <div class="modal fade" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            Generated Code
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3 style="color: #55b5db;">HTML</h3>
+          <textarea class="form-control gen-text html_cont" id="html_area" rows="3" spellcheck="false"></textarea>
+          <h3 style="color: #c47c18;">CSS</h3>
+          <textarea class="form-control gen-text css_cont" id="css_area" rows="3" spellcheck="false"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <aside id="se-left-sidebar" class="scrollbar1">
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" width="50" height="2e3" version="1.1"
+        viewBox="0 0 13.229 529.17">
+        <g transform="matrix(-.0002924 1.8665 .48454 .0011264 .62357 .26278)" style="fill: #b8e5f5">
+          <path
+            d="m283.5 9.7s-7.3 4.3-14 4.6c-6.8 0.3-12.6 0-20.9-1.5-11.3-2-33.1-10.1-44.7-5.7s-12.1 4.6-18 7.4c-6.6 3.2-20 9.6-36.6 9.3-17.7-0.3-49.8-16.6-63-15.8-1.4 0.1-6.6 0.8-10.5 2-3.8 1.2-9.4 3.8-17 4.7-3.2 0.4-8.3 1.1-14.2 0.9-1.5-0.1-6.3-0.4-12-1.6s-11-3.1-15.8-3.7c-10.3-1.1-16.8 0.5-16.8 0.5v-10.8h283.5zm-22.7 1.6c-0.7-1-2-0.4-4.3-0.4s-6.1-1.2-5.8-1.1 3.1 1.5 6 1.9c3 0.5 4.7 0.6 4.1-0.4zm-18.4-2.7s-2.4-0.2-5.6-0.9c-3.2-0.8-10.3-2.8-15.1-3.5-8.2-1.1-15.8 0-15.1 0.1 0.8 0.1 9.6-0.6 17.6 1.1 3.3 0.7 9.3 2.2 12.4 2.7 3.3 0.6 5.8 0.5 5.8 0.5zm-57.2-0.1c1.7-0.7-13.3 4.7-18.5 6.1-2.1 0.6-6.2 1.6-10 2-3.9 0.4-8.9 0.4-8.8 0.5 0 0.2 5.8 0.8 11.2 0s5.2-1.1 7.6-1.6c3.8-0.8 16.8-6.3 18.5-7zm13.9-1.6c0.2 0-0.8-0.4-4.8 1.1s-6.7 3.5-6.9 3.7c-0.2 0.1 3.5-1.8 6.6-3 3-1.2 5-1.8 5.1-1.8zm83.9-0.9c-0.1 0.1-1.9 1.1-4.8 2.5s-6.9 2.8-6.7 2.7c0.2 0 3.5-0.6 7.4-2.5s4.2-2.8 4.1-2.7zm-251.7 5.6c0.1-0.2-1.9-0.2-4.5-1.2s-5.4-1.6-7.8-2c-4-0.8-11.7 0.1-11.3 0.2 0.3 0.1 8.2-0.3 12.5 0.7 2.2 0.5 2.4 0.5 5.7 1.6s5.3 1 5.4 0.7zm41.7-2.4c0.4-0.1 3.5-1.6 8.4-2.6 4.9-1.1 8.9-0.5 8.9-0.8s-1-0.9-6.2-0.3-11.5 3.8-11.1 3.7zm-1.4-2.5c0.2 0.1 3.4-1.3 5.7-1.7 2.3-0.3 1.9-0.5 1.9-0.6s-1.1-0.2-2.7 0.2c-1.7 0.5-5.1 2-4.9 2.1zm22-2.3c0.1 0.2 3.5 0.8 5.6 1.8s1.8 0.6 1.9 0.5-0.8-0.8-2.4-1.3c-1.6-0.6-5.2-1.2-5.1-1zm-28.2 6.7c-0.1 0.3 0.3 0.5 1.9-0.2s2.6-1.3 2.2-1.2-0.9 0.4-2.5 0.8c-1.7 0.4-1.5 0.3-1.6 0.6zm-30.9 1.3c-0.2 0 2.1 0.8 3.3 0.9s2 0.1 2-0.2-0.1-0.5-1.6-0.4c-1.6 0.1-3.5-0.3-3.7-0.3zm117.7 8.7c-0.1 0.1-2.4-0.3-7.5-0.3-5 0-13.6-2.4-17.2-3.5s10 3.9 16.5 4.1 8.3-0.4 8.2-0.3z"
+            style="fill: #fff" />
+          <path d="m269.6 18c-0.1-0.1-4.6 0.3-7.2 0-7.3-0.7-17-3.2-16.6-2.9s13.7 3.1 17 3.3c4.9 0.4 6.9-0.4 6.8-0.4z"
+            style="fill: #b8e5f5" />
+          <path d="m227.4 9.8c-0.2-0.1-4.5-1-9.5-1.2s-12.7 0.6-12.3 0.5c0.3-0.1 5.9-1.8 13.3-1.2s8.7 2 8.5 1.9z"
+            style="fill: #b8e5f5" />
+          <path d="m204.5 13.4c-0.1-0.1 2-1 3.2-1.1s2 0 2 0.3-0.1 0.5-1.6 0.4c-1.7-0.1-3.5 0.5-3.6 0.4z"
+            style="fill: #b8e5f5" />
+          <path d="m201 10.6c0-0.1-4.4 1.2-6.3 2.2-1.9 0.9-6.2 3.1-6.1 3.1 0.1 0.1 4.2-1.6 6.3-2.6s6.1-2.6 6.1-2.7z"
+            style="fill: #b8e5f5" />
+          <path d="m154.5 26.7c-0.1-0.1-4.6 0.3-7.2 0-7.3-0.7-17-3.2-16.6-2.9s13.7 3.1 17 3.3c4.9 0.4 6.9-0.3 6.8-0.4z"
+            style="fill: #b8e5f5" />
+          <path
+            d="m41.9 19.3s1.2-0.3 2.9-0.1 5.8 0.9 8.2 0.7c4.2-0.4 7.4-2.7 7-2.6-0.4 0-4.3 2.2-8.6 1.9-1.8-0.1-5.1-0.5-6.7-0.4s-2.8 0.5-2.8 0.5z"
+            style="fill: #b8e5f5" />
+          <path d="m75.5 12.6c0.2 0.1 2-0.8 4.3-1.1 2.3-0.2 2.1-0.3 2.1-0.5 0-0.1-1.8-0.4-3.4 0-1.6 0.5-3.2 1.5-3 1.6z"
+            style="fill: #b8e5f5" />
+          <path d="m15.6 13.2c0-0.1 4.3 0 6.7 0.5s5 1.9 5 2-2.7-0.8-5.1-1.4c-2.3-0.6-6.5-1-6.6-1.1z"
+            style="fill: #b8e5f5" />
+        </g>
+      </svg>
+      <span id="left-sidebar-toggler">
+        <i class="fas fa-angle-double-left"></i>
+      </span>
+
+      <ul class="nav nav-tabs" id="seLeftSidebarTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="se-editor-tab" data-toggle="tab" href="#se-editor" role="tab"
+            aria-controls="se-editor" aria-selected="se-editor">Editor</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="se-elems-tab" data-toggle="tab" href="#se-elems" role="tab" aria-controls="se-elems"
+            aria-selected="false">Elements</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="se-tab-content">
+        <div class="tab-pane fade show active" id="se-editor" role="tabpanel" aria-labelledby="se-editor-tab">
+          <p class="se-editor-header">CONTENT</p>
+
+          <div class="single-se-elem-editor" id="se-content-editor">
+            <select class="sm-input mb-3 d-none ml-auto" id="input-code-language">
+              <option value="language-markup" selected>HTML</option>
+              <option value="language-css">CSS</option>
+              <option value="language-javascript">JavaScript</option>
+              <option value="language-php">PHP</option>
+              <option value="language-plsql">SQL</option>
+            </select>
+            <textarea id="se-editor-textarea" rows="7" class="d-none item"></textarea>
+            <img id="se-editor-img" class="d-none img-fluid item" />
+          </div>
+          <!-- // CONTENT EDITOR -->
+          <div class="single-se-elem-editor">
+            <label>Link:</label>
+            <input class="grow-1 w-100" type="text" id="link" value="" placeholder="https://www.example.com" />
+          </div>
+          <!-- // ELEMENT LINK -->
+
+          <p class="se-editor-header">STYLE</p>
+
+          <div class="single-se-elem-editor">
+            <label for="font-size-range">Width</label>
+            <div class="d-flex se-input-group">
+              <input class="sm-input" id="input-width" type="number" />
+              <select class="sm-input" id="input-width-type">
+                <option value="px" selected>px</option>
+                <option value="%">%</option>
+                <option value="vh">vh</option>
+              </select>
+            </div>
+          </div>
+          <!-- // Width -->
+
+          <div class="single-se-elem-editor">
+            <label for="font-size-range">Height</label>
+            <div class="d-flex se-input-group">
+              <input class="sm-input" id="input-height" type="number" />
+              <select class="sm-input" id="input-height-type">
+                <option value="px" selected>px</option>
+                <option value="%">%</option>
+                <option value="vh">vh</option>
+              </select>
+            </div>
+          </div>
+          <!-- // Height -->
+
+          <div class="single-se-elem-editor">
+            <label for="font-size-range">Font size (in px)</label>
+            <div class="d-flex se-input-group">
+              <input type="range" class="custom-range lg-input" min="0" max="200" step="1" id="font-size-range"
+                value="16" />
+              <input class="sm-input" id="input-font-size" type="number" />
+            </div>
+          </div>
+          <!-- // FONT SIZE -->
+
+          <div class="single-se-elem-editor">
+            <div class="d-flex se-input-group">
+              <span>Text Align:</span>
+              <select id="input-text-align">
+                <option value="center">center</option>
+                <option value="left">left</option>
+                <option value="right">right</option>
+                <option value="justify">justify</option>
+                <option value="start">start</option>
+                <option value="end">end</option>
+              </select>
+            </div>
+          </div>
+          <!-- // TEXT ALIGN -->
+
+          <div class="single-se-elem-editor">
+            <div class="d-flex se-input-group">
+              <span>Font Weight:</span>
+              <select class="sm-input" id="input-font-weight">
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="400">400</option>
+                <option value="500">500</option>
+                <option value="600">600</option>
+                <option value="700">700</option>
+                <option value="800">800</option>
+                <option value="900">900</option>
+                <option value="bold">bold</option>
+              </select>
+            </div>
+          </div>
+          <!-- // FONT WEIGHT -->
+
+          <div class="single-se-elem-editor">
+            <div class="d-flex se-input-group">
+              <span>Font Style:</span>
+              <select id="input-font-style">
+                <option value="italic">italic</option>
+                <option value="normal">normal</option>
+                <option value="oblique">oblique</option>
+              </select>
+            </div>
+          </div>
+          <!-- // FONT STYLE -->
+
+          <div class="single-se-elem-editor">
+            <div class="d-flex se-input-group">
+              <span>Background Color:</span>
+              <input class="pick-color" type="text" id="bg-color" name="color" value="#ffffff" />
+              <div id="bg-color-picker" class="color-picker"></div>
+            </div>
+          </div>
+          <!-- // BACKGROUND COLOR-->
+
+          <div class="single-se-elem-editor">
+            <div class="d-flex se-input-group">
+              <span>Font Color:</span>
+              <input class="pick-color" type="text" id="font-color" value="#000000" />
+              <div id="font-color-picker" class="color-picker"></div>
+            </div>
+          </div>
+          <!-- // FONT COLOR -->
+
+          <div class="single-se-elem-editor">
+            <label>Margin (in px)</label>
+
+            <div class="sm-four-inputs" id="elem-margin">
+              <div>
+                <p class="mb-0 text-center">Top</p>
+                <input class="item" type="number" id="margin-top" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Right</p>
+                <input class="item" type="number" id="margin-right" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Bottom</p>
+                <input class="item" type="number" id="margin-bottom" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Left</p>
+                <input class="item" type="number" id="margin-left" />
+              </div>
+              <input type="checkbox" class="is-linked" checked />
+            </div>
+          </div>
+          <!-- // MARGIN -->
+
+          <div class="single-se-elem-editor">
+            <label>Padding (in px)</label>
+            <div class="sm-four-inputs" id="elem-padding">
+              <div>
+                <p class="mb-0 text-center">Top</p>
+                <input class="item" type="number" id="padding-top" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Right</p>
+                <input class="item" type="number" id="padding-right" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Bottom</p>
+                <input class="item" type="number" id="padding-bottom" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Left</p>
+                <input class="item" type="number" id="padding-left" />
+              </div>
+              <input type="checkbox" class="is-linked" checked />
+            </div>
+          </div>
+          <!-- // PADDING -->
+
+          <div class="single-se-elem-editor" id="elem-border">
+            <label>Border (in px): </label>
+
+            <div class="sm-four-inputs">
+              <div>
+                <p class="mb-0 text-center">Top</p>
+                <select class="item item-select" id="border-top">
+                  <option value="none">none</option>
+                  <option value="dotted">dotted</option>
+                  <option value="dashed">dashed</option>
+                  <option value="solid">solid</option>
+                  <option value="double">double</option>
+                  <option value="groove">groove</option>
+                  <option value="ridge">ridge</option>
+                  <option value="inset">inset</option>
+                  <option value="outset">outset</option>
+                </select>
+              </div>
+              <div>
+                <p class="mb-0 text-center">Right</p>
+                <select class="item item-select" id="border-right">
+                  <option value="none">none</option>
+                  <option value="dotted">dotted</option>
+                  <option value="dashed">dashed</option>
+                  <option value="solid">solid</option>
+                  <option value="double">double</option>
+                  <option value="groove">groove</option>
+                  <option value="ridge">ridge</option>
+                  <option value="inset">inset</option>
+                  <option value="outset">outset</option>
+                </select>
+              </div>
+              <div>
+                <p class="mb-0 text-center">Bottom</p>
+                <select class="item item-select" id="border-bottom">
+                  <option value="none">none</option>
+                  <option value="dotted">dotted</option>
+                  <option value="dashed">dashed</option>
+                  <option value="solid">solid</option>
+                  <option value="double">double</option>
+                  <option value="groove">groove</option>
+                  <option value="ridge">ridge</option>
+                  <option value="inset">inset</option>
+                  <option value="outset">outset</option>
+                </select>
+              </div>
+              <div>
+                <p class="mb-0 text-center">Left</p>
+                <select class="item item-select" id="border-left">
+                  <option value="none">none</option>
+                  <option value="dotted">dotted</option>
+                  <option value="dashed">dashed</option>
+                  <option value="solid">solid</option>
+                  <option value="double">double</option>
+                  <option value="groove">groove</option>
+                  <option value="ridge">ridge</option>
+                  <option value="inset">inset</option>
+                  <option value="outset">outset</option>
+                </select>
+              </div>
+              <input type="checkbox" class="is-linked" checked />
+            </div>
+            <div class="sm-three-inputs mt-3">
+              <span>Size: </span>
+              <input class="item" type="number" id="border-size" />
+              <span>Color: </span>
+              <input class="pick-color item" type="text" id="border-color" name="color" value="#000000" />
+              <div id="border-color-picker" class="color-picker"></div>
+            </div>
+          </div>
+          <!-- // BORDER -->
+
+          <div class="single-se-elem-editor">
+            <label>Border Radius (in px)</label>
+            <div class="sm-four-inputs" id="elem-border-radius">
+              <div>
+                <p class="mb-0 text-center">Top</p>
+                <input class="item" type="number" id="radius-top" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Right</p>
+                <input class="item" type="number" id="radius-right" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Bottom</p>
+                <input class="item" type="number" id="radius-bottom" />
+              </div>
+              <div>
+                <p class="mb-0 text-center">Left</p>
+                <input class="item" type="number" id="radius-left" />
+              </div>
+              <input type="checkbox" class="is-linked" checked />
+            </div>
+          </div>
+          <!-- // BORDER RADIUS -->
+
+          <div class="single-se-elem-editor">
+            <label>Box Shadow (in px)</label>
+            <div class="sm-four-inputs" id="elem-box-shadow">
+              <div>
+                <input class="item" type="number" id="shadow-x" />
+              </div>
+              <div>
+                <input class="item" type="number" id="shadow-y" />
+              </div>
+              <div>
+                <input class="item" type="number" id="shadow-blur" />
+              </div>
+              <div>
+                <input class="item" type="number" id="shadow-spread" />
+              </div>
+              <input type="checkbox" class="is-linked mt-0" checked />
+            </div>
+            <span>Color: </span>
+            <input class="pick-color item mt-3" type="text" id="shadow-color" name="color" value="#000000" />
+            <div id="shadow-color-picker" class="color-picker"></div>
+          </div>
+          <!-- // BORDER RADIUS -->
+        </div>
+        <div class="tab-pane fade" id="se-elems" role="tabpanel" aria-labelledby="se-elems-tab">
+          <div id="dynamic-elems" class="row">
+            <div class="col-12">
+              <div class="draggable item" id="elem-h1">
+                <img src="img/heading.png" class="d-block mx-auto mb-2" />
+                <button class="heading btn btn-sm btn-outline-dark item-elem" data-tag="h1" data-editable="true">
+                  H1
+                </button>
+                <button class="heading btn btn-sm btn-outline-dark item-elem" data-tag="h2" data-editable="true">
+                  H2
+                </button>
+                <button class="heading btn btn-sm btn-outline-dark item-elem" data-tag="h3" data-editable="true">
+                  H3
+                </button>
+                <button class="heading btn btn-sm btn-outline-dark item-elem" data-tag="h4" data-editable="true">
+                  H4
+                </button>
+                <button class="heading btn btn-sm btn-outline-dark item-elem" data-tag="h5" data-editable="true">
+                  H5
+                </button>
+                <button class="heading btn btn-sm btn-outline-dark item-elem" data-tag="h6" data-editable="true">
+                  H6
+                </button>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="draggable item item-elem" id="elem-para" data-tag="p" data-editable="true">
+                <img src="img/para.png" />
+                <p>Paragraph</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="draggable item item-elem" id="elem-img" data-tag="img" data-editable="false">
+                <img src="img/image.png" />
+                <p>Image</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="draggable item item-elem" id="elem-line" data-tag="hr" data-editable="false">
+                <img src="img/line.png" />
+                <p>Line</p>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="draggable item item-elem" id="elem-code" data-tag="code" data-editable="false">
+                <img src="img/code.png" />
+                <p>Code</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="draggable item item-elem" id="elem-video" data-tag="iframe" data-editable="false">
+                <img src="img/video.png" />
+                <p>Video</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="se-left-sidebar-footer">
+        <button id="update-se-page" class="btn btn-info gen-code">
+          Generate Code
+        </button>
+      </div>
+    </aside>
+
+    <article id="se-main-blog">
+      <nav class="se-blog-nav">
+        <!--   <a href="#" class="btn btn-md btn-prev btn-dark">Previous</a> -->
+        <!--  <a href="#" class="btn btn-md btn-next btn-success">Next</a> -->
+      </nav>
+
+      <div id="se-blog-content" class="se-edit-mode"></div>
+      <div id="copyDiv"></div>
+
+      <div class="add-se-elem-wrapper" id="add-new-se-elem">
+        <i class="fas fa-plus"></i>
+      </div>
+    </article>
+  </main>
+
+  <!-- Global JavaScript Library-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/sortable.js"></script>
+  <script src="js/simple-html-editor.js"></script>
+  <script src="js/farbtastic.js"></script>
+  <script src="js/prism.js"></script>
+  <script src="js/style.js"></script>
+
+  <script>
+    $("#bg-color-picker").farbtastic("#bg-color");
+    $("#font-color-picker").farbtastic("#font-color");
+    $("#border-color-picker").farbtastic("#border-color");
+    $("#shadow-color-picker").farbtastic("#shadow-color");
+
+    $(".pick-color").on("focus", function () {
+      $(this).parent().find(".color-picker").css("display", "block");
+    });
+    $(".pick-color").on("blur", function () {
+      $(this).parent().find(".color-picker").css("display", "none");
+    });
+
+    $(".gen-code").on("click", () => {
+      $("#html_area").val("");
+      $("#css_area").val("");
+      var _data = localStorage.getItem('editorDat');
+      if (_data !== null) {
+        _data = JSON.parse(_data)
+        let styleCss = _data.styleee
+        let blogContent = _data.htmlll
+        $("#html_area").val(blogContent);
+        $("#css_area").val(styleCss);
+      }
+      $("#codeModal").modal("show");
+    });
+
+    $('#se-blog-content').bind("DOMSubtreeModified", function () {
+      saveToLocalStorage()
+    });
+
+    function fetchFromLocalStorage() {
+      var _data = localStorage.getItem('editorDat');
+      _data = JSON.parse(_data)
+      if (_data !== null) {
+        let htmlllall = _data.htmlllall
+        // console.log("htmlllall fetched from localStorage ===> ", htmlllall)
+        $("#se-blog-content").html(`${_data.htmlllall}`)
+      }
+    }
+
+    function saveToLocalStorage() {
+      let styleee = ''
+      $("#se-blog-content *").each(function () {
+        if ($(this).attr("style"))
+          styleee += `#${$(this).attr("id")}{${$(this).attr("style")}}`;
+      });
+
+      if ($("#se-blog-content").html().length > 0) {
+        $("#se-blog-content").clone().appendTo("#copyDiv");
+        let htmlllall = $("#copyDiv").html().replace(`<i class="fas fa-trash-alt remove-elem"></i>`, '').trim();
+        htmlllall = htmlllall.replace(`<div id="se-blog-content" class="se-edit-mode">`,'').trim();
+        htmlllall = htmlllall.substring(0, htmlllall.length - 6)
+        $("#copyDiv *").removeAttr("style");
+        let htmlll = $("#copyDiv").html().replace(`<i class="fas fa-trash-alt remove-elem"></i>`, '').trim();
+        htmlll = htmlll.replace(`<div id="se-blog-content" class="se-edit-mode">`,'').trim();
+        htmlll = htmlll.substring(0, htmlll.length - 6)
+        let editorDat = {
+          styleee: styleee,
+          htmlll: htmlll,
+          htmlllall: htmlllall,
+        }
+        editorDat = JSON.stringify(editorDat)
+        localStorage.setItem('editorDat', editorDat);
+      }
+      $('#copyDiv').empty();
+    }
+
+    (function () {
+      orig = $.fn.css;
+      $.fn.css = function () {
+        var result = orig.apply(this, arguments);
+        $(this).trigger('stylechanged');
+        return result;
+      }
+    })();
+
+    $('#se-blog-content').on('stylechanged', function () {
+      setTimeout(function () {
+        saveToLocalStorage()
+      }, 1000)
+    });
+
+    fetchFromLocalStorage();
+  </script>
+</body>
+
+</html>
