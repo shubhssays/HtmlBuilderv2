@@ -132,7 +132,7 @@ jQuery(function () {
             } else {
                 if (elemTag == 'img') {
                     elemStr = `<div id="${elemIdPrefix}-${seElemsIndex[elemIdPrefix]}" class="se-elem elem-${elemIdPrefix} sortable"/>
-                    <img src="/img/image.png" /></div> 
+                    <img src="/img/image.png" height="300px" width="300px"/></div> 
                     </div>`;
                     let input = document.createElement('input');
                     input.setAttribute('type', 'file');
@@ -147,7 +147,6 @@ jQuery(function () {
                             console.log("_inp src ==> ", file)
                             let blob = await getBase64(file)
                             $('#_inp').remove();
-                            console.log("myBlob :::>>> ", blob)
                             $('img[src="/img/image.png"]').attr('src', blob);
                         })()
                     })
